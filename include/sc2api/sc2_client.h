@@ -52,8 +52,8 @@ public:
     //! Called when a game has ended.
     virtual void OnGameEnd() {}
 
-    //! In non realtime games this function gets called after each step as indicated by step size.
-    //! In realtime this function gets called as often as possible after request/responses are received from the game gathering observation state.
+    //! This event will only get called when stepping. It will not get called in a real time game.
+    //! In a real time game the user will be responsible for calling GetObservation() via the ObservationInterface.
     virtual void OnStep() {}
 
     //! Called whenever one of the player's units has been destroyed.
@@ -134,8 +134,5 @@ bool IsCarryingMinerals(const Unit& unit);
 //!< \return Returns true if the unit is carrying vespene, false otherwise.
 bool IsCarryingVespene(const Unit& unit);
 
-struct IsVisible {
-    bool operator()(const Unit& unit);
-};
 
 }

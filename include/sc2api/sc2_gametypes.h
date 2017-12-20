@@ -46,11 +46,6 @@ enum PlayerType {
     Observer = 3
 };
 
-enum class ChatChannel {
-    All = 0,
-    Team = 1
-};
-
 class Agent;
 
 //! Setup for a player in a game.
@@ -195,18 +190,6 @@ struct ReplayInfo {
     float GetGameloopsPerSecond() const {
         return float(duration_gameloops) / duration;
     }
-};
-
-struct PlayerResult {
-    PlayerResult(uint32_t player_id, GameResult result) : player_id(player_id), result(result) {};
-
-    uint32_t player_id;
-    GameResult result;
-};
-
-struct ChatMessage {
-    uint32_t player_id;
-    std::string message;
 };
 
 }

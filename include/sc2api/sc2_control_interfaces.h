@@ -68,10 +68,6 @@ public:
     virtual void ClearProtocolErrors() = 0;
 
     virtual void UseGeneralizedAbility(bool value) = 0;
-
-    // Save/Load.
-    virtual void Save() = 0;
-    virtual void Load() = 0;
 };
 
 class AgentControlInterface {
@@ -86,7 +82,7 @@ public:
     virtual ~ReplayControlInterface() = default;
 
     virtual bool GatherReplayInfo(const std::string& path, bool download_data = false) = 0;
-    virtual bool LoadReplay(const std::string& replay_path, const InterfaceSettings& settings, uint32_t player_id, bool realtime=false) = 0;
+    virtual bool LoadReplay(const std::string& replay_path, const InterfaceSettings& settings, uint32_t player_id) = 0;
     virtual bool WaitForReplay() = 0;
     virtual void UseGeneralizedAbility(bool value) = 0;
 
